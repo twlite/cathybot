@@ -1,0 +1,34 @@
+{
+  "name": "cathy",
+  "version": "1.0.0",
+  "description": "Discord bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Snowflake107/cathybot.git"
+  },
+  "keywords": [
+    "cathy",
+    "chatbot",
+    "aiml"
+  ],
+  "author": "Snowflake107",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Snowflake107/cathybot/issues"
+  },
+  "homepage": "https://github.com/Snowflake107/cathybot#readme",
+  "engines": {
+    "node": "12.x",
+    "npm": "*"
+  },
+  "dependencies": {
+    "cathy.js": "0.0.1",
+    "discord.js": "^12.2.0",
+    "dotenv": "^8.2.0"
+  }
+}
