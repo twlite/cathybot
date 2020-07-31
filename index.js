@@ -4,8 +4,8 @@ const { Bot } = require("cathy.js");
 const client = new Client({
     disableMentions: "all"
 });
-const cathy = new Bot();
-const messages = [
+const cathy = new Bot(); // create new chatbot client
+const errorMessages = [
     "Sorry, I can't understand.",
     "What do you mean?",
     "uh",
@@ -15,11 +15,11 @@ const messages = [
     "Hmm.",
     "idot",
     "idot, wdym?"
-];
+]; // messages to send if there's error
 
 client.on("ready", () => {
     console.log("Bot is ready!");
-    cathy.load();
+    cathy.load(); // load cathy
 });
 
 cathy.on("ready", () => {
@@ -29,16 +29,16 @@ cathy.on("ready", () => {
 client.on("message", async message => {
     if (message.author.bot || !message.guild) return;
     if (message.channel.id === "738092276051607703") {
-        message.channel.startTyping(3);
-        cathy.chat(message.content)
+        message.channel.startTyping();
+        cathy.chat(message.content) // chat
         .then(msg => {
-            if (!msg.content) return message.channel.send(messages[Math.floor(Math.random() * messages.length)]);
+            if (!msg.content) return message.channel.send(errorMessages[Math.floor(Math.random() * errorMessages.length)]);
             message.channel.stopTyping(true);
             return message.channel.send(msg.content);
         })
         .catch(e => {
             message.channel.stopTyping(true);
-            return message.channel.send(messages[Math.floor(Math.random() * messages.length)]);
+            return message.channel.send(errorMessages[Math.floor(Math.random() * errorMessages.length)]);
         });
     }
 });
